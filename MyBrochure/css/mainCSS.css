@@ -1,0 +1,43 @@
+﻿.select{
+    width:100%;
+}
+
+.btnAddDelete{
+    width:50%;
+    float:left
+}
+
+.btnUp, .btnDown{
+    width:100%;
+}
+.btnLeft, .btnRight{
+    width:50%;
+    float:left
+}
+
+#tableFontSettings tbody tr td input,select{
+    margin-top:5px;
+}
+
+
+#idCerceve {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    min-width: 375px;
+}
+
+#divFontAyar,#divPic table tr td{
+    text-align:left;
+}
+
+/*table input{
+    width:100px;
+    
+}*/
+
+.tab-pane{
+    float:left;
+    /*background-color:blueviolet*/
+}
