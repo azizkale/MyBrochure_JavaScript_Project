@@ -68,6 +68,8 @@ function addText() {
             }
         }, true);
     }
+
+
    
     //makes TextBoxS width flexible while input text
     {
@@ -241,4 +243,3 @@ function deleteSelectedText() {
         readURL(this);
     });
 }
-
