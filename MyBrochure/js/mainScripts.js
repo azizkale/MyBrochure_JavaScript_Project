@@ -44,7 +44,7 @@ function addText() {
 
     document.getElementById('idCerceve').appendChild(textBox);
 
-    //Yazıyı mausla hareket ettirme
+    //Yazıyı mouse la hareket ettirme
     {
         textBox.addEventListener('mousedown', function (e) {
             isDown = true;
@@ -242,3 +242,27 @@ function deleteSelectedText() {
     });
 }
 
+{
+    var elment = document.getElementById("idCerceve");
+    elment.addEventListener('mousedown', function (e) {
+        isDown = true;
+        offset = [
+            elment.offsetLeft - e.clientX,
+            elment.offsetTop - e.clientY
+        ];
+    }, true);
+    document.addEventListener('mouseup', function () {
+        isDown = false;
+    }, true);
+    document.addEventListener('mousemove', function (event) {
+        event.preventDefault();
+        if (isDown) {
+            mousePosition = {
+                x: event.clientX,
+                y: event.clientY
+            };
+            elment.style.left = (mousePosition.x + offset[0]) + 'px';
+            elment.style.top = (mousePosition.y + offset[1]) + 'px';
+        }
+    }, true);
+}
