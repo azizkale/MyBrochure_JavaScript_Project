@@ -87,27 +87,9 @@
                                             <td>Add a Photo</td>
                                         </tr>
                                         <tr>
-                                            <td><input type='file' id="imgInp" value="dasda" /></td>
+                                            <td><input type='file' id="imgInp" /></td>
                                         </tr>
-                                        <tr>
-                                            <td>Photo Width:</td>
-                                        </tr>
-                                        <tr>
-                                            <td><select class="select" id="idPhotoWidth" onchange="PhotoWidth()"></select>
-                                        </tr>
-                                        <tr>
-                                            <td>Foto Boy:</td>
-                                            <td><input type="number" id="idFotoBoy" step="10" ng-model="fotoboy" ng-init="fotoboy=825" ng-change="fotoBoy(fotoboy)" /> </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Foto Dikey Konum</td>
-                                            <td><input type="number" id="idFotoDikeyKonum" step="5" ng-model="topfoto" ng-init="topfoto=-5" ng-change="fotoTop(topfoto)" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Foto Yatay Konum</td>
-                                            <td><input type="number" id="idFotoYatayKonum" step="5" ng-model="ytyfoto" ng-init="ytyfoto=0" ng-change="fotoYatay(ytyfoto)" /></td>
-                                        </tr>
+                                      
                                     </table>
                                 </div>
                             </div>
@@ -139,10 +121,10 @@
                     </div>
                 </div>
                 <div class="col-11" style="height:75%;">
-                    <div id="idCerceve" class="text-center" style="position:relative;">
-                        <img id="blah" src="#" alt="your image" style="max-width:100%;resize:both" />
+                    <div id="idCerceve" class="text-center">
+                        <img id="blah" src="#"/>
+                       
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -168,8 +150,6 @@
                 </div>
             </div>
         </div>
-
-
     </form>
 
 
@@ -179,6 +159,11 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/mainScripts.js"></script>
 
+    <!--JQuery Scripts to drag and resize the Photos-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
    
 </body>
-</html>
+</html >

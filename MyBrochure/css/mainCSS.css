@@ -25,19 +25,20 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    min-width: 375px;
+    min-width: 375px;   
 }
 
 #divFontAyar,#divPic table tr td{
     text-align:left;
 }
 
-/*table input{
-    width:100px;
-    
-}*/
 
 .tab-pane{
     float:left;
     /*background-color:blueviolet*/
 }
+
+
+
+
+
