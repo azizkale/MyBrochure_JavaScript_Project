@@ -314,3 +314,32 @@ function deleteSelectedText() {
             inertia: true
         })
 }
+
+//Preview Function
+function clickPreview() {
+
+    document.getElementById("previewImage").style.height = 100;
+
+    html2canvas(document.getElementById("idCerceve"), {
+        onrendered: function (canvas) {
+            document.getElementById("previewImage").append(canvas);
+            getCanvas = canvas;
+        }
+    });
+
+    //$("#exampleModalCenter").css({ "left": -($(window).width() - $("#idCerceve img").width()) / 2 });
+}
+
+//Download function
+function clickDownload() {
+    var imgageData = getCanvas.toDataURL("image/png");
+    // Now browser starts downloading it instead of just showing it
+    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+    $("#btn-Convert-Html2Image").attr("download", "afis.png").attr("href", newData);
+}
+
+//Clear Preview div
+function clickOnizlemeyiTemizle() {
+    document.getElementById("previewImage").innerHTML = "";
+
+}
