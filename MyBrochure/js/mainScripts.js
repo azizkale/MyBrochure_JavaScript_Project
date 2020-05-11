@@ -226,37 +226,13 @@ function deleteSelectedText() {
 }
 
 
-//Dragable and Resizable Image Area
+//Dragable and Resizable Image
 {
     var element = document.getElementById('blah')
     var x = 0; var y = 0
 
     interact(element)
-        .draggable({
-            modifiers: [
-                interact.modifiers.snap({
-                    targets: [
-                        interact.createSnapGrid({ x: 30, y: 30 })
-                    ],
-                    range: Infinity,
-                    relativePoints: [{ x: 0, y: 0 }]
-                }),
-                interact.modifiers.restrict({
-                    restriction: element.parentNode,
-                    elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
-                    endOnly: true
-                })
-            ],
-            inertia: true
-        })
-        .on('dragmove', function (event) {
-            x += event.dx
-            y += event.dy
-
-            event.target.style.webkitTransform =
-                event.target.style.transform =
-                'translate(' + x + 'px, ' + y + 'px)'
-        }).resizable({
+        .resizable({
             // resize from all edges and corners
             edges: { left: true, right: true, bottom: true, top: true },
 
@@ -296,6 +272,54 @@ function deleteSelectedText() {
 
             inertia: true
         })
+        .draggable({
+            // enable inertial throwing
+            inertia: true,
+            // keep the element within the area of it's parent
+            modifiers: [
+                interact.modifiers.restrictRect({
+                    restriction: 'parent',
+                    endOnly: true
+                })
+            ],
+            // enable autoScroll
+            autoScroll: true,
+
+            listeners: {
+                // call this function on every dragmove event
+                move: dragMoveListener,
+
+                // call this function on every dragend event
+                end(event) {
+                    var textEl = event.target.querySelector('p')
+
+                    textEl && (textEl.textContent =
+                        'moved a distance of ' +
+                        (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
+                            Math.pow(event.pageY - event.y0, 2) | 0))
+                            .toFixed(2) + 'px')
+                }
+            }
+        })
+
+    function dragMoveListener(event) {
+        var target = event.target
+        // keep the dragged position in the data-x/data-y attributes
+        var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+        var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+
+        // translate the element
+        target.style.webkitTransform =
+            target.style.transform =
+            'translate(' + x + 'px, ' + y + 'px)'
+
+        // update the posiion attributes
+        target.setAttribute('data-x', x)
+        target.setAttribute('data-y', y)
+    }
+
+    // this function is used later in the resizing and gesture demos
+    window.dragMoveListener = dragMoveListener
 }
 
 //Resiazble Preview Area
@@ -340,7 +364,7 @@ function deleteSelectedText() {
         ],
 
         inertia: true
-    });    
+    });   
 }
 
 //Preview Function
