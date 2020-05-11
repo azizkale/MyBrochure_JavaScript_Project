@@ -1,21 +1,4 @@
-﻿//Boostrapts Functions
-{
-    //FontSettings popup function
-    $(function () {
-        $('#popFontSettings').popover({
-            container: 'body'
-        })
-    });
-    //FontSettings Popup contetnt
-    $('[data-toggle=popover]').popover({
-        content: $('#tableFontSettings').html(),
-        html: true
-    }).click(function () {
-        $(this).popover('show');
-        });
-}
-
-
+﻿
 //adds text to image
 var arrayTextBoxes = [];
 function addText() {
@@ -69,7 +52,7 @@ function addText() {
         }, true);
     }
    
-    //makes TextBoxS width flexible while input text
+    //makes TextBoxeS width flexible while inputed text
     {
         textBox.addEventListener('input', resizeInput); // bind the "resizeInput" callback on "input" event
         resizeInput.call(textBox); // immediately call the function
@@ -78,8 +61,7 @@ function addText() {
             this.style.width = this.value.length + "ch";
         }
     }
-
-   
+    
     //click eventi
     textBox.addEventListener("click", function () {
         //makes all textboxes without border
@@ -89,6 +71,7 @@ function addText() {
         //add border to textbox clicked
         this.style.border = "1px solid black";
     });
+
    
   
 }
@@ -243,7 +226,7 @@ function deleteSelectedText() {
 }
 
 
-//Dragable and Resizable Image
+//Dragable and Resizable Image Area
 {
     var element = document.getElementById('blah')
     var x = 0; var y = 0
@@ -315,19 +298,73 @@ function deleteSelectedText() {
         })
 }
 
+//Resiazble Preview Area
+{
+    var previewArea = document.getElementById("idCerceve");
+    interact(previewArea).resizable({
+        // resize from all edges and corners
+        edges: { left: true, right: true, bottom: true, top: true },
+
+        listeners: {
+            move(event) {
+                var target = event.target
+                var x = (parseFloat(target.getAttribute('data-x')) || 0)
+                var y = (parseFloat(target.getAttribute('data-y')) || 0)
+
+                // update the element's style
+                target.style.width = event.rect.width + 'px'
+                target.style.height = event.rect.height + 'px'
+
+                // translate when resizing from top or left edges
+                x += event.deltaRect.left
+                y += event.deltaRect.top
+
+                target.style.webkitTransform = target.style.transform =
+                    'translate(' + x + 'px,' + y + 'px)'
+
+                target.setAttribute('data-x', x)
+                target.setAttribute('data-y', y)
+                //target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
+            }
+        },
+        modifiers: [
+            // keep the edges inside the parent
+            interact.modifiers.restrictEdges({
+                outer: 'parent'
+            }),
+
+            // minimum size
+            interact.modifiers.restrictSize({
+                min: { width: 100, height: 50 }
+            })
+        ],
+
+        inertia: true
+    });    
+}
+
 //Preview Function
 function clickPreview() {
+    //to delete border of preview area when clicked preview button
+    document.getElementById("idCerceve").style.border = "none";
+    //to delete border of textboxes when clicked preview button
+    arrayTextBoxes.map(function (item) {
+        item.style.border = "0px solid black";
+    });
 
-    document.getElementById("previewImage").style.height = 100;
-
+    //preview function
     html2canvas(document.getElementById("idCerceve"), {
         onrendered: function (canvas) {
             document.getElementById("previewImage").append(canvas);
             getCanvas = canvas;
         }
     });
-
-    //$("#exampleModalCenter").css({ "left": -($(window).width() - $("#idCerceve img").width()) / 2 });
+   
+    //to block dismiss of preview modal when clicked outside
+    $('#exampleModalCenter').modal({ backdrop: 'static', keyboard: false })  
+    //to set position of preview modal
+    $("#exampleModalCenter").css({ "left": - ($(window).width() - $("#idCerceve img").width()) / 2 });
+   
 }
 
 //Download function
@@ -336,10 +373,17 @@ function clickDownload() {
     // Now browser starts downloading it instead of just showing it
     var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
     $("#btn-Convert-Html2Image").attr("download", "afis.png").attr("href", newData);
+
+    //to give border again to preview area
+    document.getElementById("idCerceve").style.border = "1px dotted black";
+
 }
 
 //Clear Preview div
 function clickOnizlemeyiTemizle() {
     document.getElementById("previewImage").innerHTML = "";
+
+    //to give border again to preview area
+    document.getElementById("idCerceve").style.border = "1px dotted black";
 
 }

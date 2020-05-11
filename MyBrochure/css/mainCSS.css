@@ -1,4 +1,4 @@
-﻿html, body, form, .container-fluid, #rowSttingsAndPhoto,#idCerceve{
+﻿html, body, form, .container-fluid, #rowSttingsAndPhoto{
     height:100%;
 }
 
@@ -29,7 +29,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    min-width: 375px;   
+    min-width: initial;
+    border: 1px dotted black;
 }
 
 #divFontAyar,#divPic table tr td{
