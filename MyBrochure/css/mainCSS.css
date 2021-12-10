@@ -1,52 +1,53 @@
-﻿html, body, form, .container-fluid, #rowSttingsAndPhoto{
-    height:100%;
+﻿html,
+body,
+form,
+.container-fluid,
+#rowSttingsAndPhoto {
+  height: 100%;
 }
 
 .select {
-    width: 100%;
+  width: 100%;
 }
 
-.btnAddDelete{
-    width:50%;
-    float:left
+.btnAddDelete {
+  width: 50%;
+  float: left;
 }
 
-.btnUp, .btnDown{
-    width:100%;
+.btnUp,
+.btnDown {
+  width: 100%;
 }
-.btnLeft, .btnRight{
-    width:50%;
-    float:left
-}
-
-#tableFontSettings tbody tr td input,select{
-    margin-top:5px;
+.btnLeft,
+.btnRight {
+  width: 50%;
+  float: left;
 }
 
+#tableFontSettings tbody tr td input,
+select {
+  margin-top: 5px;
+}
 
 #idCerceve {
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    min-width: initial;
-    border: 1px dotted black;
-    /*to make resizable*/
-    overflow: auto;
-    resize: both
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  min-width: initial;
+  border: 1px dotted black;
+  /*to make resizable*/
+  overflow: auto;
+  resize: both;
 }
 
-#divFontAyar,#divPic table tr td{
-    text-align:left;
+#divFontAyar,
+#divPic table tr td {
+  text-align: left;
 }
 
-
-.tab-pane{
-    float:left;
-    /*background-color:blueviolet*/
+.tab-pane {
+  float: left;
+  /*background-color:blueviolet*/
 }
-
-
-
-
-
