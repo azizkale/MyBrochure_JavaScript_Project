@@ -1,5 +1,6 @@
 ﻿//adds text to image
 var arrayTextBoxes = [];
+var arrayDivs = []; // to be able to show on canvas bigger
 function addText() {
   var mousePosition;
   var offset = [0, 0];
@@ -10,8 +11,8 @@ function addText() {
   textBox = document.createElement("input");
   textBox.style.position = "absolute";
   textBox.style.left = "120px";
-  textBox.style.top = "0px";
-  textBox.style.width = "auto";
+  textBox.style.top = "40px";
+  textBox.style.width = "200px";
   textBox.style.height = "auto";
   textBox.style.backgroundColor = "transparent";
   textBox.style.border = "none";
@@ -379,10 +380,30 @@ function clickPreview() {
     item.style.border = "0px solid black";
   });
 
+  // code below creates divs and make them with same features as inputs
+  // and hides inputs and provides to show textes on canvas with divs
+  // otherwise inputs can not display on canvas with their fontsize, bullshit
+  arrayTextBoxes.forEach((item, index) => {
+    let div = document.createElement("div");
+    div.innerHTML = item.value;
+    document.getElementById("idCerceve").append(div);
+    div.style.top = item.style.top;
+    div.style.bottom = item.style.bottom;
+    div.style.right = item.style.right;
+    div.style.left = item.style.left;
+    div.style.fontSize = item.style.fontSize;
+    div.style.position = "absolute";
+    item.style.display = "none";
+    arrayDivs.push(div);
+  });
+
   html2canvas(document.getElementById("idCerceve")).then(function (canvas) {
     document.getElementById("previewImage").append(canvas);
     getCanvas = canvas;
   });
+
+  //to block dismiss of preview modal when clicked outside
+  $("#exampleModalCenter").modal({ backdrop: "static", keyboard: false });
 }
 
 //Download function
@@ -407,4 +428,14 @@ function clickOnizlemeyiTemizle() {
 
   //to give border again to preview area
   document.getElementById("idCerceve").style.border = "1px dotted black";
+
+  // code below removes all dives which created to be able to show texes on canvas better.
+  arrayDivs.forEach((item, index) => {
+    item.remove();
+  });
+
+  // code below shows all inputs again(make them visible)
+  arrayTextBoxes.forEach((item, index) => {
+    item.style.display = "inline";
+  });
 }
