@@ -12,17 +12,13 @@ function addText() {
   textBox.style.left = "120px";
   textBox.style.top = "0px";
   textBox.style.width = "auto";
+  textBox.style.height = "auto";
   textBox.style.backgroundColor = "transparent";
   textBox.style.border = "none";
   textBox.style.fontSize = "30px";
   textBox.value = "my text";
   textBox.className = "allTexes";
   arrayTextBoxes.push(textBox);
-
-  arrayTextBoxes.map(function (item) {
-    item.style.border = "0px solid black";
-  });
-  textBox.style.border = "1px solid black";
 
   document.getElementById("idCerceve").appendChild(textBox);
 
@@ -189,7 +185,7 @@ function addText() {
   }
 }
 
-//All Texte's  Rotation
+//All Texte's  Position
 {
   function clickUp() {
     arrayTextBoxes.map(function (item, index) {
@@ -384,8 +380,6 @@ function clickPreview() {
   });
 
   html2canvas(document.getElementById("idCerceve")).then(function (canvas) {
-    canvas.style.width = "100%";
-    document.getElementById("previewImage").style.width = "100%";
     document.getElementById("previewImage").append(canvas);
     getCanvas = canvas;
   });
