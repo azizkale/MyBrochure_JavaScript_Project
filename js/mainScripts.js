@@ -60,7 +60,7 @@ function addText() {
     );
   }
 
-  //makes TextBoxeS width flexible while inputed text
+  //makes TextBoxeS width flexible while inputing text
   {
     textBox.addEventListener("input", resizeInput); // bind the "resizeInput" callback on "input" event
     resizeInput.call(textBox); // immediately call the function
@@ -182,36 +182,6 @@ function addText() {
       if (item.style.border == "1px solid black") {
         item.style.color = e;
       }
-    });
-  }
-}
-
-//All Texte's  Position
-{
-  function clickUp() {
-    arrayTextBoxes.map(function (item, index) {
-      var top = parseInt(item.style.top) - 10;
-      if (top > 0) {
-        item.style.top = top + "px";
-      }
-    });
-  }
-  function clickDown() {
-    arrayTextBoxes.map(function (item, index) {
-      var downn = parseInt(item.style.top) + 10;
-      item.style.top = downn + "px";
-    });
-  }
-  function clickLeft() {
-    arrayTextBoxes.map(function (item, index) {
-      var left = parseInt(item.style.left) - 10;
-      item.style.left = left + "px";
-    });
-  }
-  function clickRight() {
-    arrayTextBoxes.map(function (item, index) {
-      var right = parseInt(item.style.left) + 10;
-      item.style.left = right + "px";
     });
   }
 }
