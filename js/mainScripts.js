@@ -77,7 +77,7 @@ function addText() {
     }
   }
 
-  //click eventi
+  //click eventi on PC
   textBox.addEventListener("click", function () {
     //makes all textboxes without border
     arrayTextBoxes.map(function (item) {
@@ -85,6 +85,19 @@ function addText() {
     });
     //add border to textbox clicked
     this.style.border = "1px solid black";
+  });
+
+  //click eventi on touchable devices
+  textBox.addEventListener("touchstart", function () {
+    //makes all textboxes without border
+    arrayTextBoxes.map(function (item) {
+      item.style.border = "0px solid black";
+    });
+    //add border to textbox clicked
+    this.style.border = "1px solid black";
+
+    // to be enable eidtable feature of texbox
+    this.setAttribute("onclick", this.focus());
   });
 }
 
