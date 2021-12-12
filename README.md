@@ -6,7 +6,7 @@ http://mybrochure.somee.com/
 
 This is a JScript application with which you can put notes on your photos/brochures etc. 
 <b>It is provided by using html2canvas.</b>
-(https://raw.githubusercontent.com/azizkale/MyBrochure_JavaScript_Project/master/-10.04.2020_M%C3%BCr%C3%BCvvet_Duyuru.png)
+(https://raw.githubusercontent.com/azizkale/MyBrochure_JavaScript_Project/master/-10.04.2020_M%C3%BCr%C3%BCvvet_Duyuru.png?raw=true)
 
 ![hotel_reservation](https://user-images.githubusercontent.com/15267154/108933613-3718ac80-762a-11eb-97eb-69d3739d6413.gif)
 
