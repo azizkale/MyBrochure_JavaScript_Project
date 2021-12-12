@@ -19,8 +19,15 @@ function addText() {
   textBox.style.fontSize = "30px";
   textBox.value = "my text";
   textBox.className = "allTexes";
-  arrayTextBoxes.push(textBox);
 
+  // for touchable screens======
+  textBox.setAttribute("draggable", true);
+  textBox.addEventListener("touchstart", touchHandler, true);
+  textBox.addEventListener("touchmove", touchHandler, true);
+  textBox.addEventListener("touchend", touchHandler, true);
+  textBox.addEventListener("touchcancel", touchHandler, true);
+  //=================
+  arrayTextBoxes.push(textBox);
   document.getElementById("idCerceve").appendChild(textBox);
 
   //Yazıyı mouse la hareket ettirme
@@ -60,7 +67,7 @@ function addText() {
     );
   }
 
-  //makes TextBoxeS width flexible while inputed text
+  //makes TextBoxeS width flexible while inputing text
   {
     textBox.addEventListener("input", resizeInput); // bind the "resizeInput" callback on "input" event
     resizeInput.call(textBox); // immediately call the function
@@ -70,7 +77,7 @@ function addText() {
     }
   }
 
-  //click eventi
+  //click eventi on PC
   textBox.addEventListener("click", function () {
     //makes all textboxes without border
     arrayTextBoxes.map(function (item) {
@@ -78,6 +85,19 @@ function addText() {
     });
     //add border to textbox clicked
     this.style.border = "1px solid black";
+  });
+
+  //click eventi on touchable devices
+  textBox.addEventListener("touchstart", function () {
+    //makes all textboxes without border
+    arrayTextBoxes.map(function (item) {
+      item.style.border = "0px solid black";
+    });
+    //add border to textbox clicked
+    this.style.border = "1px solid black";
+
+    // to be enable eidtable feature of texbox
+    this.setAttribute("onclick", this.focus());
   });
 }
 
@@ -182,36 +202,6 @@ function addText() {
       if (item.style.border == "1px solid black") {
         item.style.color = e;
       }
-    });
-  }
-}
-
-//All Texte's  Position
-{
-  function clickUp() {
-    arrayTextBoxes.map(function (item, index) {
-      var top = parseInt(item.style.top) - 10;
-      if (top > 0) {
-        item.style.top = top + "px";
-      }
-    });
-  }
-  function clickDown() {
-    arrayTextBoxes.map(function (item, index) {
-      var downn = parseInt(item.style.top) + 10;
-      item.style.top = downn + "px";
-    });
-  }
-  function clickLeft() {
-    arrayTextBoxes.map(function (item, index) {
-      var left = parseInt(item.style.left) - 10;
-      item.style.left = left + "px";
-    });
-  }
-  function clickRight() {
-    arrayTextBoxes.map(function (item, index) {
-      var right = parseInt(item.style.left) + 10;
-      item.style.left = right + "px";
     });
   }
 }
