@@ -16,7 +16,7 @@ function addText() {
   textBox.style.height = "auto";
   textBox.style.backgroundColor = "transparent";
   textBox.style.border = "none";
-  textBox.style.fontSize = "30px";
+  textBox.style.fontSize = "45px";
   textBox.value = "my text";
   textBox.className = "allTexes";
 

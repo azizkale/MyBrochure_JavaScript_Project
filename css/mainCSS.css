@@ -51,3 +51,7 @@ select {
   float: left;
   /*background-color:blueviolet*/
 }
+
+select {
+  text-align: center;
+}
