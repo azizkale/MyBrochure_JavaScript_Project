@@ -1,16 +1,12 @@
-# MyBrochure_JavaScript_Project
 create and design your own brochures easily
 the project is available to use in this link:
 http://mybrochure.somee.com/
 
-# HotelReservation - A Java project for hotel reservation management
+# MyBrochure_JavaScript_Project - A Java Script project for creating your own photos with notes on it
 
-This is a `java` application for booking hotel rooms which I developed for the Udacity's [Java Programming Course](https://www.udacity.com/course/java-programming-nanodegree--nd079).
-The goal was to create a hotel application which allows users to book and manage room reservations.
-The project emphasizes the use of Java programming language for practicing and elevating fundamental skills as a Java developer.
-
-You may run the project by executing the [HotelApplication](https://github.com/zeevolution/hotel-reservation/blob/master/src/HotelApplication.java) class
-on your favorite Java IDEA.
+This is a JScript application with which you can put notes on your photos/brochures etc. 
+<b>It is provided by using html2canvas.</b>
+https://github.com/azizkale/MyBrochure_JavaScript_Project/blob/master/-10.04.2020_M%C3%BCr%C3%BCvvet_Duyuru.png
 
 ![hotel_reservation](https://user-images.githubusercontent.com/15267154/108933613-3718ac80-762a-11eb-97eb-69d3739d6413.gif)
 
