@@ -19,8 +19,15 @@ function addText() {
   textBox.style.fontSize = "30px";
   textBox.value = "my text";
   textBox.className = "allTexes";
-  arrayTextBoxes.push(textBox);
 
+  // for touchable screens======
+  textBox.setAttribute("draggable", true);
+  textBox.addEventListener("touchstart", touchHandler, true);
+  textBox.addEventListener("touchmove", touchHandler, true);
+  textBox.addEventListener("touchend", touchHandler, true);
+  textBox.addEventListener("touchcancel", touchHandler, true);
+  //=================
+  arrayTextBoxes.push(textBox);
   document.getElementById("idCerceve").appendChild(textBox);
 
   //Yazıyı mouse la hareket ettirme
