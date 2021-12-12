@@ -15,7 +15,7 @@
   <body style="background-color: azure">
     <form>
       <div class="container-fluid">
-        <div class="row">
+        <div class="row mx-0">
           <div
             id="cardMenuContainer"
             class="card text-center"
@@ -24,9 +24,9 @@
             <div>
               <div class="card-body container">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                  <li class="nav-item">
+                  <li class="nav-item btn btn-primary btn-lg">
                     <a
-                      class="nav-link active"
+                      class="nav-link active btn btn-primary btn-lg"
                       id="pills-font-tab"
                       data-toggle="pill"
                       href="#pills-font"
@@ -36,9 +36,9 @@
                       >Text</a
                     >
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item btn btn-primary btn-lg">
                     <a
-                      class="nav-link"
+                      class="nav-link btn btn-primary btn-lg"
                       id="pills-pic-tab"
                       data-toggle="pill"
                       href="#pills-pic"
@@ -48,9 +48,9 @@
                       >Photo</a
                     >
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item btn btn-primary btn-lg">
                     <a
-                      class="nav-link"
+                      class="nav-link btn btn-primary btn-lg"
                       id="pills-onizleme-tab"
                       data-toggle="pill"
                       href="#pills-onizleme"
@@ -65,158 +65,109 @@
             </div>
           </div>
         </div>
-        <div class="row" id="rowSttingsAndPhoto">
-          <div class="tab-content col-sm-2" id="pills-tabContent">
-            <!--Font Ayatları-->
-            <div
-              class="tab-pane fade show active"
-              id="pills-font"
-              role="tabpanel"
-              aria-labelledby="pills-font-tab"
-            >
-              <div id="divFontAyar">
-                <div class="card-body container">
-                  <table id="tableFontSettings">
-                    <tr>
-                      <td>
-                        <input
-                          type="button"
-                          class="btn btn-primary btnAddDelete"
-                          value="Add"
-                          onclick="addText()"
-                        />
-                        <input
-                          type="button"
-                          class="btn btn-info btnAddDelete"
-                          value="Delete"
-                          onclick="deleteSelectedText()"
-                        />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <select
-                          class="select"
-                          id="idFontSize"
-                          onchange="fontSize()"
-                        ></select>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>
-                        <select
-                          class="select"
-                          id="idFontFamily"
-                          onchange="fontFamily()"
-                        ></select>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>
-                        <select
-                          class="select"
-                          id="idFontStyle"
-                          onchange="fontStyle()"
-                        ></select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <select
-                          class="select"
-                          id="idFontWeight"
-                          onchange="fontWeight()"
-                        ></select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input
-                          class="select"
-                          type="color"
-                          id="idColor"
-                          onchange="setColor()"
-                        />
-                      </td>
-                    </tr>
-                  </table>
-                </div>
+        <div class="tab-content row" id="pills-tabContent">
+          <!--Font Ayatları-->
+          <div
+            class="tab-pane fade show active col-sm-12 my-0"
+            id="pills-font"
+            role="tabpanel"
+            aria-labelledby="pills-font-tab"
+          >
+            <div class="card-body row">
+              <div class="col">
+                <input
+                  type="button"
+                  class="btn btn-primary btn-lg btnAddDelete"
+                  value="Add"
+                  onclick="addText()"
+                />
+                <input
+                  type="button"
+                  class="btn btn-lg btn-danger btnAddDelete"
+                  value="Del."
+                  onclick="deleteSelectedText()"
+                />
               </div>
-            </div>
-
-            <!--Foto Ayarları-->
-            <div
-              class="tab-pane fade"
-              id="pills-pic"
-              role="tabpanel"
-              aria-labelledby="pills-pic-tab"
-            >
-              <div id="divPic">
-                <div class="card-body container">
-                  <div class="">
-                    <table>
-                      <tr>
-                        <td>Add a Photo</td>
-                      </tr>
-                      <tr>
-                        <td><input type="file" id="imgInp" /></td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
+              <div class="col btn btn-info btn-lg">
+                <select
+                  class="select btn-info"
+                  id="idFontSize"
+                  onchange="fontSize()"
+                ></select>
               </div>
-            </div>
-
-            <!--ön izleme ve indirme ayarları-->
-            <div
-              class="tab-pane fade"
-              id="pills-onizleme"
-              role="tabpanel"
-              aria-labelledby="pills-onizleme-tab"
-            >
-              <div id="divOnizleme">
-                <div class="card-body container">
-                  <div class="">
-                    <table>
-                      <tr>
-                        <td>
-                          <!-- Button trigger modal -->
-                          <button
-                            type="button"
-                            id="btn-Preview-Image"
-                            onclick="clickPreview()"
-                            class="btn btn-primary col"
-                            data-toggle="modal"
-                            data-target="#exampleModalCenter"
-                          >
-                            Preview
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <input
-                            type="button"
-                            style="width: 100%"
-                            onclick="clickOnizlemeyiTemizle()"
-                            class="btn btn-primary"
-                            value="Clear Preview Window"
-                          />
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
+              <div class="col btn btn-info btn-lg">
+                <select
+                  class="select btn-info"
+                  id="idFontFamily"
+                  onchange="fontFamily()"
+                ></select>
+              </div>
+              <div class="col btn btn-info btn-lg">
+                <select
+                  class="select btn-info"
+                  id="idFontStyle"
+                  onchange="fontStyle()"
+                ></select>
+              </div>
+              <div class="col btn btn-info btn-lg">
+                <select
+                  class="select btn-info"
+                  id="idFontWeight"
+                  onchange="fontWeight()"
+                ></select>
+              </div>
+              <div class="col btn btn-info btn-lg">
+                <input
+                  class="select"
+                  type="color"
+                  id="idColor"
+                  onchange="setColor()"
+                />
               </div>
             </div>
           </div>
-          <!--===================PREVİEW DIV========================-->
-          <div class="col-sm-10">
-            <div id="idCerceve" class="text-center" style="height: 50ch">
-              <img id="blah" src="#" height="100%" width="100%" />
+
+          <!--Foto Ayarları-->
+          <div
+            class="tab-pane fade col-sm-12 my-0"
+            id="pills-pic"
+            role="tabpanel"
+            aria-labelledby="pills-pic-tab"
+          >
+            <div id="divPic row">
+              <div class="card-body">
+                <input type="file" id="imgInp" class="btn btn-primary btn-lg" />
+              </div>
             </div>
+          </div>
+
+          <!--ön izleme ve indirme ayarları-->
+          <div
+            class="tab-pane fade col-sm-12 my-0"
+            id="pills-onizleme"
+            role="tabpanel"
+            aria-labelledby="pills-onizleme-tab"
+          >
+            <!-- <div id="divOnizleme"> -->
+            <div class="card-body row">
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                id="btn-Preview-Image"
+                onclick="clickPreview()"
+                class="btn btn-primary btn-lg col-sm-4"
+                data-toggle="modal"
+                data-target="#exampleModalCenter"
+              >
+                Preview
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--===================PREVİEW DIV========================-->
+        <div class="row text-center mx-0">
+          <div id="idCerceve" class="col text-center" style="height: 50ch">
+            <img id="blah" src="#" />
           </div>
         </div>
       </div>

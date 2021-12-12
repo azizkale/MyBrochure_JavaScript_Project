@@ -11,12 +11,12 @@ function addText() {
   textBox = document.createElement("input");
   textBox.style.position = "absolute";
   textBox.style.left = "120px";
-  textBox.style.top = "40px";
+  // textBox.style.top = "10px";
   textBox.style.width = "200px";
   textBox.style.height = "auto";
   textBox.style.backgroundColor = "transparent";
   textBox.style.border = "none";
-  textBox.style.fontSize = "30px";
+  textBox.style.fontSize = "45px";
   textBox.value = "my text";
   textBox.className = "allTexes";
 
@@ -221,16 +221,21 @@ function deleteSelectedText() {
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-
       reader.onload = function (e) {
         $("#blah").attr("src", e.target.result);
       };
-
       reader.readAsDataURL(input.files[0]); // convert to base64 string
+      console.log(input.files);
     }
   }
   $("#imgInp").change(function () {
     readURL(this);
+    var u = URL.createObjectURL(this.files[0]);
+    var img = new Image();
+    img.onload = function () {
+      $("#idCerceve").css({ height: img.height, important: true });
+    };
+    img.src = u;
   });
 }
 
