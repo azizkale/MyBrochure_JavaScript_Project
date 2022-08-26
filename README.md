@@ -3,3 +3,5 @@
 This is a JScript application with which you can put notes on your photos/brochures etc.
 
 <b>It is provided by using html2canvas.</b>
+
+The application is available on: https://azizkale.github.io/MyBrochure_JavaScript_Project/
